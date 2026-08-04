@@ -19,7 +19,6 @@ public class Solution extends GuessGame {
                 high = mid-1;
             }
             else{
-                ans = mid;
                 low = mid+1;
             }
         }
