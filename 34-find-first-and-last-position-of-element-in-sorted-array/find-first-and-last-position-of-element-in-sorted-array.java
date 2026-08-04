@@ -24,11 +24,9 @@ class Solution {
         int ans = -1;
         while(low<=high){
             int mid = low+(high-low)/2;
-            if(nums[mid]==x){
+            if(nums[mid]<=x){
                 ans = mid;
                 low = mid+1;
-            }else if(nums[mid] < x){
-                low = mid + 1;
             }
             else {
                 high = mid-1; 
@@ -37,6 +35,7 @@ class Solution {
         return ans;
     }
     public int[] searchRange(int[] nums, int target) {
+        if(first(nums,target)==-1) return new int[]{-1,-1};
         return new int[]{first(nums,target),last(nums,target)};
     }
 }
