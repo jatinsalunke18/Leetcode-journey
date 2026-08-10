@@ -3,15 +3,17 @@ class Solution {
         int low = 0;
         int high = nums.length-1;
         int min = Integer.MAX_VALUE;
+        if(nums.length==1) return nums[0];
         while(low<=high){
-            int mid = low+(high-low)/2;
+            int mid = (low+high)/2;
             if(nums[low]<=nums[high]) min = Math.min(nums[low],min);
-            if(nums[mid]==nums[low] && nums[mid]==nums[high]){
+            if(nums[mid]==nums[low]&& nums[mid]==nums[high]){
                 low++;
                 high--;
                 continue;
             }
             if(nums[low]<=nums[mid]){
+                min = Math.min(nums[low],min);
                 low = mid+1;
             }
             else{
