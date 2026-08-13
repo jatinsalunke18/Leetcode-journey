@@ -3,11 +3,11 @@ class Solution {
         int cnt = 1;
         int sum = 0;
         for(int num:nums){
-            if(num+sum > mid){
+            if(sum+num>mid){
                 cnt++;
                 sum = num;
             }
-            else sum += num;
+            else sum+= num;
         }
         return cnt;
     }
@@ -15,9 +15,10 @@ class Solution {
         int low = Integer.MIN_VALUE;
         int high = 0;
         for(int num:nums){
-            if(num>low) low = num;
+            low = Math.max(low,num);
             high += num;
         }
+
         while(low<=high){
             int mid = low+(high-low)/2;
             if(check(nums,mid)<=k){
@@ -27,5 +28,4 @@ class Solution {
         }
         return low;
     }
-
 }
