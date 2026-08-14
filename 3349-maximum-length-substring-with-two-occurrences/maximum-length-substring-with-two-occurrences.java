@@ -7,9 +7,7 @@ class Solution {
             map.put(s.charAt(i),map.getOrDefault(s.charAt(i),0)+1);
             if(map.get(s.charAt(i))>2){
                 while(map.get(s.charAt(i))>2){
-                    System.out.println(s.charAt(j) +":"+ map.get(s.charAt(j)));
                     map.put(s.charAt(j),map.get(s.charAt(j))-1);
-                    System.out.println(j);
                     j++;
                 }
             }
