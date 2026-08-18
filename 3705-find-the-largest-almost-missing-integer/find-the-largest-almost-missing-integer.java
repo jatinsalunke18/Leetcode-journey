@@ -7,7 +7,6 @@ class Solution {
                 map.put(nums[j],map.getOrDefault(nums[j],0)+1);
             }
         }
-        for(int key:map.keySet()) System.out.println(key+" "+map.get(key));
         for(int i=0;i<nums.length;i++){
             if(map.get(nums[i])==1) ans = Math.max(ans,nums[i]);
             if(nums.length==k) ans = Math.max(ans,nums[i]);
