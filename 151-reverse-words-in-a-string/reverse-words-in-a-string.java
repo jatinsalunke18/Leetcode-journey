@@ -7,7 +7,6 @@ class Solution {
             if(i==0){
                 temp.append(s.charAt(i));
                 ans.append(temp.reverse());
-                temp.setLength(0);
             }
             else if(s.charAt(i-1)==' ' && s.charAt(i)==' ') continue;
             else if(s.charAt(i)==' '){
