@@ -10,6 +10,7 @@ class Solution {
             right--; 
             if(left<=right && s.charAt(left)!=s.charAt(right)) return (right-left)+1;
         }
-        return Math.max(0,(right-left)+1);
+        if(left>right) return 0;
+        return right-left+1;
     }
 }
