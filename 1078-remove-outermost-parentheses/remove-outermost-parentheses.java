@@ -6,13 +6,13 @@ class Solution {
             if(s.charAt(i)=='('){
                 cnt++;
                 if(cnt>1){
-                    ans.append(s.charAt(i)+"");
+                    ans.append(s.charAt(i));
                 }
             }
             else{
                 cnt--;
                 if(cnt>=1){
-                    ans.append(s.charAt(i)+"");
+                    ans.append(s.charAt(i));
                 }
             }
         }
