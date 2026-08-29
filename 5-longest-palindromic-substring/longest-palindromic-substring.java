@@ -14,7 +14,6 @@ class Solution {
 
             for (int right = s.length() - 1; right >= left; right--) {
 
-                // No need to check if it's not longer than current answer
                 if (right - left + 1 <= ans.length())
                     break;
 
