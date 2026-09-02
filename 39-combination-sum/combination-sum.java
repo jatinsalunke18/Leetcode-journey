@@ -1,25 +1,25 @@
 class Solution {
-    public static void recursion(int i,int target,int[] nums,List<Integer> list,List<List<Integer>> ans){
-        if(i == nums.length){
-            if(target == 0){
-                ans.add(new ArrayList<>(list));
-                return;
-            }
+    int sum(List<Integer> list){
+        int sum = 0;
+        for(int num:list)sum+=num;
+        return sum;
+    }
+    void func(int ind,int[] nums,int target,List<List<Integer>> ans,List<Integer> temp){
+        int sum = sum(temp);
+        if(sum==target){
+            ans.add(new ArrayList<>(temp));
             return;
         }
-
-
-        if(target - nums[i] >= 0){
-            list.add(nums[i]);
-            recursion(i,target - nums[i],nums,list,ans);
-            list.remove(list.size() - 1);
-        }
-        recursion(i+1,target,nums,list,ans);
+        if(sum>target || ind==nums.length) return;
+        temp.add(nums[ind]);
+        func(ind,nums,target,ans,temp);
+        temp.remove(temp.size()-1);
+        func(ind+1,nums,target,ans,temp);
     }
-    public List<List<Integer>> combinationSum(int[] nums, int target) {
-        List<Integer> list = new ArrayList<>();
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> ans = new ArrayList<>();
-        recursion(0,target,nums,list,ans);
+        List<Integer> temp  = new ArrayList<>();
+        func(0,candidates,target,ans,temp);
         return ans;
     }
 }
