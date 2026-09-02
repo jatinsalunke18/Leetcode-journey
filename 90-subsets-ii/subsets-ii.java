@@ -1,19 +1,20 @@
 class Solution {
-    void func(int ind,int[] nums, HashSet<List<Integer>> ans,List<Integer> temp){
+    void func(int ind,int[] nums,List<List<Integer>> ans,List<Integer> temp){
         if(ind==nums.length){
             ans.add(new ArrayList<>(temp));
-            return;
+            return; 
         }
-        func(ind+1,nums,ans,temp);
         temp.add(nums[ind]);
         func(ind+1,nums,ans,temp);
         temp.remove(temp.size()-1);
+        while(ind+1<nums.length && nums[ind]==nums[ind+1]) ind++;
+        func(ind+1,nums,ans,temp);
     }
     public List<List<Integer>> subsetsWithDup(int[] nums) {
         Arrays.sort(nums);
-        HashSet<List<Integer>> ans = new HashSet<>();
+        List<List<Integer>> ans = new ArrayList<>();
         List<Integer> temp = new ArrayList<>();
         func(0,nums,ans,temp);
-        return new ArrayList<>(ans);
+        return ans;
     }
 }
