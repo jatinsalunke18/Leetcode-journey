@@ -11,7 +11,7 @@ class Solution {
             minarr[i] = min;
         }
         for(int i=0;i<nums.length;i++){
-            if(((int)Math.abs(maxarr[i]-minarr[nums.length-i-1]))<=k) return i;
+            if(maxarr[i]-minarr[nums.length-i-1]<=k) return i;
         }
         return -1;
     }
