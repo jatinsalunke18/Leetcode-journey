@@ -1,5 +1,5 @@
 class Solution {
-    public List<String> ans = new ArrayList<>();
+    
     public void func(int i,String s,int open,int close,int n,List<String> ans){
         if(open>n) return;
         if(open+close==2*n && open==close){
@@ -12,6 +12,7 @@ class Solution {
         }
     }
     public List<String> generateParenthesis(int n) {
+        List<String> ans = new ArrayList<>();
         func(0,"",0,0,n,ans);
         return ans;
     }
